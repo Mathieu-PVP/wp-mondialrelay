@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+body.disable-scroll {
+    overflow: hidden !important;
+}
+#Mondial_Relay_Window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000078;
+    z-index: 99999;
+    overflow-y: auto;
+}
+#Mondial_Relay_Window_Content {
+    margin: 150px auto;
+    padding: 15px;
+    width: 700px;
+    max-width: 90%;
+    height: auto;
+    min-height: 300px;
+    border-radius: 8px;
+    border: 1px solid #d5d8dc;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.5);
+    font-family: 'Noto Sans', sans-serif;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    animation: Mondial_Relay_Window_Animation .3s linear forwards;
+}
+@keyframes Mondial_Relay_Window_Animation {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
+}
+#Mondial_Relay_Window_Footer {
+    text-align: center;
+    margin: 20px;
+}
+#Mondial_Relay_Window_Content h2 {
+    font-weight: 500 !important;
+    line-height: normal;
+    text-align: center;
+    color: #1d2327;
+}
+.Mondial_Relay_Color_Text {
+    color: #96154a !important;
+}
+.Mondial_Relay_Button {
+    background-color: #96154a;
+    border-color: #96154a;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
+    color: #ffffff !important;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+.Mondial_Relay_Button:hover,
+.Mondial_Relay_Button:focus,
+.Mondial_Relay_Button:focus-visible {
+    background-color: #c3316d;
+    border-color: #c3316d;
+}
+.MR-Widget.MR-Widget-Responsive {
+    overflow: unset !important;
+}
+#Mondial_Relay_Zone_Widget .MR-Widget.MR-Widget-Responsive .MRW-ButtonCircle {
+    display: none !important;
+}

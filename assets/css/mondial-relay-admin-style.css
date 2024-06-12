@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+.toplevel_page_mondial_relay .wp-menu-image img {
+    height: 20px !important;
+    width: 20px !important;
+    padding: 7px !important;
+}
+.mr_container {
+    margin: 50px 20px 0 2px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    font-family: "Noto Sans", sans-serif;
+    box-sizing: border-box;
+    box-shadow: rgba(149, 157, 165, -0.8) 0px 5px 30px 0px;
+    max-width: 1140px;
+}
+.mr_container h1,
+.mr_container h2,
+.mr_container h3,
+.mr_container h4,
+.mr_container h5,
+.mr_container h6 {
+    font-weight: 500 !important;
+    line-height: normal;
+}
+.mr_container .mr_title {
+    font-size: 2.25rem !important;
+}
+.mr_container p {
+    font-weight: 400 !important;
+    line-height: normal;
+}
+.mr_container a {
+    color: #008dff;
+    text-decoration: none;
+}
+.mr_container input[type="submit"],
+.mr_container a.btn.btn-primary {
+    background-color: #96154a;
+    border-color: #96154a;
+    border-radius: 4px;
+    transition: all .3s ease-in-out;
+    color: #fff;
+    cursor: pointer;
+}
+.mr_container a.btn.btn-primary {
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+.mr_container input[type="submit"]:hover,
+.mr_container input[type="submit"]:focus,
+.mr_container input[type="submit"]:focus-visible,
+.mr_container a.btn.btn-primary:hover,
+.mr_container a.btn.btn-primary:focus,
+.mr_container a.btn.btn-primary:focus-visible {
+    background-color: #c3316d;
+    border-color: #c3316d;
+}
+.mr_container input[type="text"] {
+    padding: 5px 10px;
+    line-height: 2;
+    min-height: 30px;
+    background: #fff;
+}
+.mr_form { padding: 10px; }
+.mr_banner {
+    margin: 50px 20px 0 2px;
+    padding: 15px 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    font-family: "Noto Sans", sans-serif;
+    box-sizing: border-box;
+    box-shadow: rgba(149, 157, 165, -0.8) 0px 5px 30px 0px;
+    max-width: 1140px;
+}
+.mr_banner.success {
+    background-color: #45b763;
+    color: #fff;
+}
+.mr_color_red { color: #ff0000; }
+#Mondial_Relay_Window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000078;
+}
+#Mondial_Relay_Window_Content {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #d5d8dc;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.5);
+    font-family: 'Poppins', sans-serif;
+    display: block;
+}
