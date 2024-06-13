@@ -33,10 +33,6 @@ Mettez à jour la documentation si nécessaire. Cela inclut le `README.md`, les 
 - Mentionnez tout problème lié à la PR (par exemple, "Résout #123").
 - Assurez-vous que la PR passe tous les tests CI.
 
-## Code de conduite
-
-En contribuant à ce projet, vous acceptez de respecter notre [Code de Conduite](https://github.com/Mathieu-PVP/wp-mondialrelay/blob/main/CONTRIBUTING.md).
-
 ## Questions
 
 Si vous avez des questions, n'hésitez pas à ouvrir une [issue](https://github.com/Mathieu-PVP/wp-mondialrelay/issues) sur GitHub ou à nous contacter directement.
