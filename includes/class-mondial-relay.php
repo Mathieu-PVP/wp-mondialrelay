@@ -183,37 +183,61 @@ if (!class_exists('WC_Shipping_Mondial_Relay')) {
                 'table' => array(
                     'title'       => __('Tarifs par poids', 'woocommerce'),
                     'type'        => 'title',
-                    'description' => __('Définissez les tarifs de livraison en fonction du poids.', 'woocommerce'),
+                    'description' => __('Définissez les tarifs de livraison en fonction du poids.', 'woocommerce')
                 ),
                 'weight_0_5' => array(
                     'title'       => __('0 - 0.5 kg', 'woocommerce'),
                     'type'        => 'number',
                     'description' => __('Tarif pour les colis pesant entre 0 et 0.5 kg', 'woocommerce'),
-                    'default'     => '3.5',
+                    'default'     => '4.30',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
                 ),
                 'weight_1' => array(
                     'title'       => __('0.5 - 1 kg', 'woocommerce'),
                     'type'        => 'number',
                     'description' => __('Tarif pour les colis pesant entre 0.5 et 1 kg', 'woocommerce'),
-                    'default'     => '4.5',
+                    'default'     => '5.40',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
                 ),
                 'weight_2' => array(
-                    'title'       => __('1 - 2 kg', 'woocommerce'),
+                    'title'       => __('1 - 3 kg', 'woocommerce'),
                     'type'        => 'number',
-                    'description' => __('Tarif pour les colis pesant entre 1 et 2 kg', 'woocommerce'),
-                    'default'     => '5.5',
+                    'description' => __('Tarif pour les colis pesant entre 1 et 3 kg', 'woocommerce'),
+                    'default'     => '7.40',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
                 ),
-                'weight_5' => array(
-                    'title'       => __('2 - 5 kg', 'woocommerce'),
+                'weight_3' => array(
+                    'title'       => __('3 - 10 kg', 'woocommerce'),
                     'type'        => 'number',
-                    'description' => __('Tarif pour les colis pesant entre 2 et 5 kg', 'woocommerce'),
-                    'default'     => '6.5',
+                    'description' => __('Tarif pour les colis pesant entre 3 et 10 kg', 'woocommerce'),
+                    'default'     => '14.40',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
                 ),
                 'weight_10' => array(
-                    'title'       => __('5 - 10 kg', 'woocommerce'),
+                    'title'       => __('10 - 20 kg', 'woocommerce'),
                     'type'        => 'number',
-                    'description' => __('Tarif pour les colis pesant entre 5 et 10 kg', 'woocommerce'),
-                    'default'     => '7.5',
+                    'description' => __('Tarif pour les colis pesant entre 10 et 20 kg', 'woocommerce'),
+                    'default'     => '22.40',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
+                ),
+                'weight_20' => array(
+                    'title'       => __('20 - 30 kg', 'woocommerce'),
+                    'type'        => 'number',
+                    'description' => __('Tarif pour les colis pesant entre 20 et 30 kg', 'woocommerce'),
+                    'default'     => '32.40',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
                 ),
             );
         }
@@ -222,15 +246,18 @@ if (!class_exists('WC_Shipping_Mondial_Relay')) {
             $weight = 0;
             foreach ($package['contents'] as $item_id => $values) {
                 $_product = $values['data'];
-                $weight += floatval($_product->get_weight()) * intval($values['quantity']);
+                $product_weight = floatval($_product->get_weight());
+                $quantity = intval($values['quantity']);
+                $weight += $product_weight * $quantity;
             }
 
             $shipping_rates = array(
-                '0.5' => floatval($this->get_option('weight_0_5')),
-                '1'   => floatval($this->get_option('weight_1')),
-                '2'   => floatval($this->get_option('weight_2')),
-                '5'   => floatval($this->get_option('weight_5')),
-                '10'  => floatval($this->get_option('weight_10')),
+                '0.5'  => floatval($this->get_option('weight_0_5')),
+                '1'    => floatval($this->get_option('weight_1')),
+                '3'    => floatval($this->get_option('weight_2')),
+                '10'   => floatval($this->get_option('weight_3')),
+                '20'   => floatval($this->get_option('weight_10')),
+                '30'   => floatval($this->get_option('weight_20')),
             );
 
             $cost = 0;
@@ -241,11 +268,13 @@ if (!class_exists('WC_Shipping_Mondial_Relay')) {
                 }
             }
 
-            $this->add_rate(array(
+            $rate = array(
                 'id'    => $this->id,
                 'label' => $this->title,
                 'cost'  => $cost,
-            ));
+            );
+
+            $this->add_rate($rate);
         }
     }
 }
