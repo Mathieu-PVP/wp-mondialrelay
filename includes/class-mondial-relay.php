@@ -185,6 +185,15 @@ if (!class_exists('WC_Shipping_Mondial_Relay')) {
                     'type'        => 'title',
                     'description' => __('Définissez les tarifs de livraison en fonction du poids.', 'woocommerce')
                 ),
+                'free_starting_from' => array(
+                    'title'       => __('Gratuit à partir de', 'woocommerce'),
+                    'type'        => 'number',
+                    'description' => __('Montant à partir duquel la livraison est gratuite', 'woocommerce'),
+                    'default'     => '',
+                    'custom_attributes' => array(
+                        'step' => 'any',
+                    )
+                ),
                 'weight_0_5' => array(
                     'title'       => __('0 - 0.5 kg', 'woocommerce'),
                     'type'        => 'number',
@@ -268,9 +277,16 @@ if (!class_exists('WC_Shipping_Mondial_Relay')) {
                 }
             }
 
+            $label = $this->title;
+            $free_starting_from = $this->get_option('free_starting_from');
+            if (!empty($free_starting_from) && WC()->cart->subtotal >= $free_starting_from) {
+                $cost = 0;
+                $label = 'Mondial Relay (Livraison offerte)';
+            }
+
             $rate = array(
                 'id'    => $this->id,
-                'label' => $this->title,
+                'label' => $label,
                 'cost'  => $cost,
             );
 
